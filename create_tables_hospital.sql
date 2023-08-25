@@ -38,6 +38,23 @@ CREATE TABLE `availability` (
   PRIMARY KEY (`doctor_id`, `date`)
 );
 
+CREATE TABLE `clinic` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` Varchar(50) NOT NULL,
+  `description` Varchar(511),
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `schedule` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `clinic_id` int NOT NULL,
+  `start_time` Time NOT NULL,
+  `end_time` Time,
+  `date` Date NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`clinic_id`) REFERENCES `clinic`(`id`)
+);
+
 
 
 
